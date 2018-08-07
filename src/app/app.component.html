@@ -8,11 +8,13 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h2>Mes appareils</h2>
+        <h2>My Stuff</h2>
+        <p>Updated on : {{ lastUpdate | async | date: 'short' }}</p>
         <ul class="list-group">
-          <app-appareil1 [appareilName]="appareilOne" [appareilStatus]="'OFF'"></app-appareil1>
-          <app-appareil1 [appareilName]="appareilTwo" [appareilStatus]="'OFF'"></app-appareil1>
-          <app-appareil1 [appareilName]="appareilThree" [appareilStatus]="'ON'"></app-appareil1>
+          <app-appareil1  *ngFor="let appareil of appareils"
+          [appareilName]="appareil.name"
+          [appareilStatus]="appareil.status"></app-appareil1>
+          
         </ul>
         <button class="btn btn-success" [disabled]="!isAuth" (click)="onAndoff()">ON FOR ALL</button>
       </div>

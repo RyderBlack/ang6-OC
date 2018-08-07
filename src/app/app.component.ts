@@ -8,10 +8,29 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'ang6-OC';
   isAuth = false;
+  lastUpdate = new Promise((resolve, reject) => {
+    const date = new Date();
+    setTimeout(
+      () => {
+        resolve(date);
+      }, 2000
+    );
+  });
 
-  appareilOne = 'Dishwasher';
-  appareilTwo = '4K TV';
-  appareilThree = 'iMac';
+  appareils = [
+    {
+      name: 'Dishwasher',
+      status: 'OFF'
+    },
+    {
+      name: '4K TV',
+      status: 'OFF'
+    },
+    {
+      name: 'iMAc',
+      status: 'ON'
+    }
+  ];
 
   constructor() {
     setTimeout(
