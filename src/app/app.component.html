@@ -7,13 +7,14 @@
   <app-compo1></app-compo1>
   <div class="container">
     <div class="row">
-      <div class="col-xs-12">
+      <div class="col-md-12">
         <h2>Mes appareils</h2>
         <ul class="list-group">
-          <app-appareil1></app-appareil1>
-          <app-appareil1></app-appareil1>
-          <app-appareil1></app-appareil1>
+          <app-appareil1 [appareilName]="appareilOne" [appareilStatus]="'OFF'"></app-appareil1>
+          <app-appareil1 [appareilName]="appareilTwo" [appareilStatus]="'OFF'"></app-appareil1>
+          <app-appareil1 [appareilName]="appareilThree" [appareilStatus]="'ON'"></app-appareil1>
         </ul>
+        <button class="btn btn-success" [disabled]="!isAuth" (click)="onAndoff()">ON FOR ALL</button>
       </div>
     </div>
   </div>
