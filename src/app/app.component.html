@@ -11,9 +11,10 @@
         <h2>My Stuff</h2>
         <p>Updated on : {{ lastUpdate | async | date: 'short' }}</p>
         <ul class="list-group">
-          <app-appareil1  *ngFor="let appareil of appareils"
+          <app-appareil1  *ngFor="let appareil of appareils; let i = index"
           [appareilName]="appareil.name"
-          [appareilStatus]="appareil.status"></app-appareil1>
+          [appareilStatus]="appareil.status"
+          [index]="i"></app-appareil1>
           
         </ul>
         <button class="btn btn-success" 

@@ -9,7 +9,7 @@ export class AppareilService {
           status: 'OFF'
         },
         {
-          name: 'iMAc',
+          name: 'iMac',
           status: 'ON'
         }
       ];
@@ -25,4 +25,13 @@ export class AppareilService {
           appareil.status = 'OFF';
         }
     }
+
+    switchOnOne(i: number) {
+        this.appareils[i].status = 'ON';
+    }
+    
+    switchOffOne(i: number) {
+        this.appareils[i].status = 'OFF';
+    }
+
 }
