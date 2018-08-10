@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import {AppareilService} from './services/appareil.service'
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'ang6-OC';
   isAuth = false;
   lastUpdate = new Promise((resolve, reject) => {
@@ -17,22 +18,9 @@ export class AppComponent {
     );
   });
 
-  appareils = [
-    {
-      name: 'Dishwasher',
-      status: 'OFF'
-    },
-    {
-      name: '4K TV',
-      status: 'OFF'
-    },
-    {
-      name: 'iMAc',
-      status: 'ON'
-    }
-  ];
+  appareils: any[];
 
-  constructor() {
+  constructor(private appareilService: AppareilService) {
     setTimeout(
       () => {
         this.isAuth = true;
@@ -40,7 +28,19 @@ export class AppComponent {
     );
   }
 
-  onAndoff() {
-    console.log('Everything is ON !!');
+  ngOnInit() {
+    this.appareils = this.appareilService.appareils;
+  }
+
+  onOn() {
+    this.appareilService.switchOnAll();
+  }
+
+  onOff() {
+    if(confirm('Are you sure you want to turn off the appareils ?')) {
+      this.appareilService.switchOffAll();
+    } else {
+      return null;
+    }
   }
 }

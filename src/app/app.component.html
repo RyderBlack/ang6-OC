@@ -16,7 +16,13 @@
           [appareilStatus]="appareil.status"></app-appareil1>
           
         </ul>
-        <button class="btn btn-success" [disabled]="!isAuth" (click)="onAndoff()">ON FOR ALL</button>
+        <button class="btn btn-success" 
+                [disabled]="!isAuth" 
+                (click)="onOn()">Turn ON FOR ALL</button>
+
+        <button class="btn btn-danger"
+              [disabled]="!isAuth"
+              (click)="onOff()">Turn OFF FOR ALL</button>
       </div>
     </div>
   </div>
