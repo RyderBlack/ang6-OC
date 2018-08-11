@@ -6,12 +6,14 @@ import { Compo1Component } from './compo1/compo1.component';
 import { Appareil1Component } from './appareil1/appareil1.component';
 import { FormsModule } from '@angular/forms';
 import { AppareilService } from './services/appareil.service';
+import { AuthComponent } from './auth/auth.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     Compo1Component,
-    Appareil1Component
+    Appareil1Component,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
