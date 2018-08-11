@@ -25,7 +25,8 @@ const appRoutes: Routes = [
     Compo1Component,
     Appareil1Component,
     AuthComponent,
-    AppareilViewComponent
+    AppareilViewComponent,
+    SingleAppareilComponent
   ],
   imports: [
     BrowserModule,

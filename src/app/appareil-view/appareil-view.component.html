@@ -4,7 +4,8 @@
           <app-appareil1  *ngFor="let appareil of appareils; let i = index"
           [appareilName]="appareil.name"
           [appareilStatus]="appareil.status"
-          [index]="i"></app-appareil1>
+          [index]="i"
+          [id]="appareil.id"></app-appareil1>
           
         </ul>
         <button class="btn btn-success" 
