@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { interval, Subscription } from 'rxjs';
+//import { interval, Subscription } from 'rxjs';
 
 
 @Component({
@@ -9,7 +9,7 @@ import { interval, Subscription } from 'rxjs';
 })
 export class AppComponent implements OnInit, OnDestroy {
   title = 'ang6-OC';
-
+/*
   secondes: Number;
   counterSubscription: Subscription;
 
@@ -30,9 +30,9 @@ export class AppComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     if(this.secondes === 10) {
-      this.counterSubscription.unsubscribe();
+      clearInterval(this.counterSubscription);
     }
     
   }
-
+*/
 }
