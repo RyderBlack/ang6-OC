@@ -6,18 +6,18 @@
           <label for="name">
             Appareil's name
           </label>
-          <input type="text" id="name" class="form-control" name="name" ngModel>
+          <input type="text" id="name" class="form-control" name="name" ngModel required>
         </div>
         <div class="form-group">
           <label for="status">
             Appareil's status
           </label>
-          <select id="status" class="form-control" name="status" ngModel>
+          <select id="status" class="form-control" name="status" [ngModel]="defaultOnOff">
             <option value="ON">ON</option>
             <option value="OFF">OFF</option>
           </select>
         </div>
-        <button class="btn btn-primary" type="submit">Save</button>
+        <button class="btn btn-primary" type="submit" [disabled]="f.invalid">Save</button>
       </form>
     </div>
   </div>
