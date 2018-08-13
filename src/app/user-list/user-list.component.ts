@@ -1,7 +1,17 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { User } from '../models/User.model';
-import { Subscription } from 'rxjs';
-import { UserService } from '../services/user-service.service';
+import {
+  Component,
+  OnDestroy,
+  OnInit
+} from '@angular/core';
+import {
+  User
+} from '../models/User.model';
+import {
+  Subscription
+} from 'rxjs';
+import {
+  UserService
+} from '../services/user-service.service';
 
 @Component({
   selector: 'app-user-list',
@@ -10,10 +20,14 @@ import { UserService } from '../services/user-service.service';
 })
 export class UserListComponent implements OnInit, OnDestroy {
 
-  users: User[];
+
+  private users: User[] = [
+    new User('Black', 'Ryder', 'ryry@productions.com', 'Pineapple juice', ['coder', 'drinking coffee'])
+  ];
   userSubscription: Subscription;
 
-  constructor(private userService: UserService) { }
+
+  constructor(private userService: UserService) {}
 
   ngOnInit() {
     this.userSubscription = this.userService.userSubject.subscribe(
@@ -23,8 +37,7 @@ export class UserListComponent implements OnInit, OnDestroy {
     );
     this.userService.emitUsers();
   }
-
-
+  
 
   ngOnDestroy() {
     this.userSubscription.unsubscribe();
