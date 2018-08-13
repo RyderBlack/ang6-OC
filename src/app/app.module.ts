@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
@@ -13,12 +13,13 @@ import { AppareilViewComponent } from './appareil-view/appareil-view.component';
 import {FourOhFourComponent} from './four-oh-four/four-oh-four.component'
 import { EditAppareilComponent } from './edit-appareil/edit-appareil.component';
 import { UserListComponent } from './user-list/user-list.component';
+import { NewUserComponent } from './new-user/new-user.component';
 
 import { AppareilService } from './services/appareil.service';
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './services/auth-guard.service';
 import { UserService } from './services/user-service.service';
-import { NewUserComponent } from './new-user/new-user.component';
+
 
 const appRoutes: Routes = [
   { path: 'appareils', canActivate: [AuthGuard], component: AppareilViewComponent },
@@ -26,6 +27,7 @@ const appRoutes: Routes = [
   { path: 'edit', canActivate: [AuthGuard], component: EditAppareilComponent },
   { path: 'auth', component: AuthComponent },
   { path: 'users', component: UserListComponent },
+  { path: 'new-user', component: NewUserComponent },
   { path: '', component: AppareilViewComponent },
   { path: 'not-found', component: FourOhFourComponent },
   { path: '**', redirectTo: 'not-found' }
