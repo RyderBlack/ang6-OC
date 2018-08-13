@@ -18,16 +18,13 @@ import {
   templateUrl: './user-list.component.html',
   styleUrls: ['./user-list.component.scss']
 })
+
 export class UserListComponent implements OnInit, OnDestroy {
 
-
-  private users: User[] = [
-    new User('Black', 'Ryder', 'ryry@productions.com', 'Pineapple juice', ['coder', 'drinking coffee'])
-  ];
+  users: User[];
   userSubscription: Subscription;
 
-
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
     this.userSubscription = this.userService.userSubject.subscribe(
@@ -37,7 +34,8 @@ export class UserListComponent implements OnInit, OnDestroy {
     );
     this.userService.emitUsers();
   }
-  
+
+
 
   ngOnDestroy() {
     this.userSubscription.unsubscribe();
