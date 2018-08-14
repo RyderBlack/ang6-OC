@@ -1,7 +1,8 @@
-import {
-  Subject
-} from 'rxjs';
+import { Subject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 
+@Injectable()
 export class AppareilService {
 
   appareilsSubject = new Subject < any[] > ();
@@ -22,6 +23,21 @@ export class AppareilService {
       status: 'ON'
     }
   ];
+
+  constructor(private httpClient: HttpClient) {}
+
+  saveAppareilsToServer() {
+    this.httpClient
+      .post('https://appgular6-oc.firebaseio.com/appareils.json', this.appareils)
+      .subscribe(
+        () => {
+          console.log('Saving done !');
+        },
+        (error) => {
+          console.log('Error ! : ' + error);
+        }
+      );
+}
 
   emitAppareilSubject() {
     this.appareilsSubject.next(this.appareils.slice());

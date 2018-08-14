@@ -1,17 +1,15 @@
 <h2>My Stuff</h2>
-        <p>Updated on : {{ lastUpdate | async | date: 'short' }}</p>
-        <ul class="list-group">
-          <app-appareil1  *ngFor="let appareil of appareils; let i = index"
-          [appareilName]="appareil.name"
-          [appareilStatus]="appareil.status"
-          [index]="i"
-          [id]="appareil.id"></app-appareil1>
-          
-        </ul>
-        <button class="btn btn-success" 
-                [disabled]="!isAuth" 
-                (click)="onOn()">Turn ON FOR ALL</button>
+<p>Updated on : {{ lastUpdate | async | date: 'short' }}</p>
+<ul class="list-group">
+  <app-appareil1 *ngFor="let appareil of appareils; let i = index" [appareilName]="appareil.name" [appareilStatus]="appareil.status"
+    [index]="i" [id]="appareil.id"></app-appareil1>
 
-        <button class="btn btn-danger"
-              [disabled]="!isAuth"
-              (click)="onOff()">Turn OFF FOR ALL</button>
+</ul>
+<button class="btn btn-success"
+        (click)="onOn()">Turn ON FOR ALL</button>
+
+<button class="btn btn-danger"
+        (click)="onOff()">Turn OFF FOR ALL</button>
+
+<button class="btn btn-warning" 
+        (click)="onSave()">SAVE ALL</button>
