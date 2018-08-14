@@ -2,6 +2,7 @@ import { Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
+
 @Injectable()
 export class AppareilService {
 
@@ -37,7 +38,21 @@ export class AppareilService {
           console.log('Error ! : ' + error);
         }
       );
-}
+  }
+
+  getAppareilsFromServer() {
+    this.httpClient
+      .get<any[]>('https://appgular6-oc.firebaseio.com//appareils.json')
+      .subscribe(
+        (response) => {
+          this.appareils = response;
+          this.emitAppareilSubject();
+        },
+        (error) => {
+          console.log('Error ! : ' + error);
+        }
+      );
+  }
 
   emitAppareilSubject() {
     this.appareilsSubject.next(this.appareils.slice());
