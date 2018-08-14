@@ -28,7 +28,7 @@ export class AppareilService {
 
   saveAppareilsToServer() {
     this.httpClient
-      .post('https://appgular6-oc.firebaseio.com/appareils.json', this.appareils)
+      .put('https://appgular6-oc.firebaseio.com/appareils.json', this.appareils)
       .subscribe(
         () => {
           console.log('Saving done !');
